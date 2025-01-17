@@ -1,0 +1,51 @@
+# Compiled source files
+*.class
+*.dll
+*.exe
+*.so
+*.dylib
+*.out
+*.pyc
+*.pyo
+*.o
+*.obj
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Dependency directories
+node_modules/
+vendor/
+.venv/
+.env/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+*.orig
+
+# Build and output directories
+dist/
+build/
+bin/
+
+# User-specific files
+*.iml
+*.user
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.old

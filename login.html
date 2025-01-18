@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In / Sign Up</title>
+  <link rel="stylesheet" href="assests/css/login.css">
+<!-- Toastr CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+<!-- Toastr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+  <div class="container" id="container">
+    <!-- Sign Up Form -->
+    <!-- Sign Up Form -->
+<div class="form-container sign-up-container" id="signupForm">
+  <form id="signupForm">
+    <h1>Create Account</h1>
+    <span>or use your email for registration</span>
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <input type="password" id="confirm-password" placeholder="Confirm Password" required />
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
+
+<!-- Sign In Form -->
+<div class="form-container sign-in-container hidden" id="loginForm">
+  <form id="loginForm">
+    <h1>Sign In</h1>
+    <span>or use your account</span>
+    <input type="email" id="email2" placeholder="Email" required />
+    <input type="password" id="password2" placeholder="Password" required />
+    <button type="submit">Sign In</button>
+  </form>
+</div>
+
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start your journey with us</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>MIT <i class="fa fa-heart"></i>  <a target="_blank" href="#">TECHCART</a></p>
+  </footer>
+
+  <script src="assests/js/login.js"></script>
+</body>
+</html>

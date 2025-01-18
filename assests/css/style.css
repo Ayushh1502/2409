@@ -307,11 +307,15 @@ section{
 }
 
 .products .box-container .box img{
-  width: 90%;
-  height: 50%;
+  width:90%;
+  height:50%;
+  position:relative;
+  top:15px;
+  left:20px;
+  bottom:15px;
   /* border: solid 1px #275556; */
   align-items: center;
-  /* border-radius: 30%; */
+  border-radius:10%;
 }
 
 /* end */
@@ -339,7 +343,7 @@ section{
 }
 
 .testimonials .box-container .box img{
-  height: 30rem;
+  height: 20rem;
 }
 
 .testimonials .box-container .box h3{

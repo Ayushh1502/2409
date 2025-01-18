@@ -191,7 +191,9 @@ section{
 
 .home .image img{
   width: 100%;
+  border-radius: 20%; 
   padding: 4rem;
+  border: 0px solid #275556;
 }
 
 .custom-shape-divider-bottom-1684324473 {
@@ -258,15 +260,15 @@ section{
 
 /* end */
 
-/* education */
+/* products */
 
-.education .box-container{
+.products .box-container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 1.5rem;
 }
 
-.education .box-container .box{
+.products .box-container .box{
   background: var(--white);
   border-radius: 2rem;
   box-shadow: var(--box-shadow);
@@ -275,19 +277,19 @@ section{
   overflow: hidden;
 }
 
-.education .box-container .box:hover img{
+.products .box-container .box:hover img{
   transform: scale(1.1);
 }
 
-.education .box-container .box:nth-child(odd){
+.products .box-container .box:nth-child(odd){
   background: #60b2a6;
 }
 
-.education .box-container .box:nth-child(2){
+.products .box-container .box:nth-child(2){
   background: #275556;
 }
 
-.education .box-container .box h3{
+.products .box-container .box h3{
   font-size: 2.5rem;
   color: var(--white);
   line-height: 1.8;
@@ -295,35 +297,40 @@ section{
   padding-left: 2rem;
 }
 
-.education .box-container .box p{
+.products .box-container .box ul{
   font-size: 1.5rem;
   line-height: 1.8;
   color: var(--white);
+  position: relative;
+  left: 20px;
   padding: 1rem 2rem;
 }
 
-.education .box-container .box img{
-  width: 100%;
-  height: 66%;
+.products .box-container .box img{
+  width: 90%;
+  height: 50%;
+  /* border: solid 1px #275556; */
+  align-items: center;
+  /* border-radius: 30%; */
 }
 
 /* end */
 
-/* teacher */
+/* testimonials */
 
-.teacher{
+.testimonials{
   background: url(images/teacher-bg.png) no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.teacher .box-container{
+.testimonials .box-container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 1.5rem;
 }
 
-.teacher .box-container .box{
+.testimonials .box-container .box{
   background: var(--white);
   padding: 3rem 2rem;
   text-align: center;
@@ -331,22 +338,22 @@ section{
   border-radius: 2rem;
 }
 
-.teacher .box-container .box img{
+.testimonials .box-container .box img{
   height: 30rem;
 }
 
-.teacher .box-container .box h3{
+.testimonials .box-container .box h3{
   font-size: 2.5rem;
   color: var(--black);
 }
 
-.teacher .box-container .box p{
+.testimonials .box-container .box p{
   font-size: 1.7rem;
   color: var(--light-color);
   margin-bottom: 1rem;
 }
 
-.teacher .box-container .box .share i{
+.testimonials .box-container .box .share i{
   height: 4.5rem;
   width: 4.5rem;
   line-height: 4.5rem;
@@ -360,7 +367,7 @@ section{
   cursor: pointer;
 }
 
-.teacher .box-container .box .share i:hover{
+.testimonials .box-container .box .share i:hover{
   color: var(--white);
   border: .1rem solid #275556;
   background: #275556;
@@ -501,10 +508,14 @@ section{
 
 .contact .row .image{
   flex: 1 1 20rem;
+  position: relative;
+  top: 20px;
 }
 
 .contact .row .image img{
-  width: 100%;
+  width: 80%;
+  height: 90%;
+  border-radius: 20%;
 }
 
 .contact .row form{

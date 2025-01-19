@@ -15,6 +15,9 @@ async function fetchProduct() {
     }
 }
 
+document.getElementById("cart").addEventListener("click" , ()=> {
+    window.location.href="Cart.html"
+})
 
 // Display function
 function display(productsToDisplay) {

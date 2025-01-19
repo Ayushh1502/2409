@@ -33,8 +33,8 @@ if(token){
 
     const parsedUser = JSON.parse(user); // Parse the stored user data
     const username = parsedUser.name; // Access the user's name
-    userName.innerHTML = `Welcome, ${username}! <br>It's great to have you here! 🎉`;
-    console.log(username)
+    userName.innerHTML =`WELCOME ${username} !<br>Its Great to have you here!`
+    console.log(username);
     userName.style.display = "block"
 
     document.getElementById("starts").style.display="block"

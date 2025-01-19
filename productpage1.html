@@ -22,23 +22,26 @@
       </nav>
   
       <div class="icons">
+        <button id="cart" class="btn">YOUR CART</button>
           <button id="loggedIn" class="btn" style="display: none; border: none; margin-top: 1px;"></button>
           <div class="fas fa-bars" id="menu-btn"></div>
       </div>
     </header>
 
     <!-- Search and Filter Section -->
+   <nav id="searchh">
+    <div id="nav2">
     <section class="filter-section">
-        <input type="text" id="searchBar" placeholder="Search for products..." onkeyup="searchProduct()" />
-        <select id="categoryFilter" onchange="filterByCategory()">
+        <input class="all" type="text" id="searchBar" placeholder="Search for products..." onkeyup="searchProduct()" />
+        <select class="all" id="categoryFilter" onchange="filterByCategory()">
             <option value="">All Categories</option>
-            <!-- Categories will be dynamically filled -->
+            Categories will be dynamically filled
         </select>
-        <select id="priceFilter" onchange="sortByPrice()">
+        <select class="all" id="priceFilter" onchange="sortByPrice()">
             <option value="low-to-high">Price: Low to High</option>
             <option value="high-to-low">Price: High to Low</option>
         </select>
-        <select id="ratingFilter" onchange="filterByRating()">
+        <select class="all" id="ratingFilter" onchange="filterByRating()">
             <option value="">Rating</option>
             <option value="1">1 Star & Above</option>
             <option value="2">2 Stars & Above</option>
@@ -46,8 +49,13 @@
             <option value="4">4 Stars & Above</option>
             <option value="5">5 Stars</option>
         </select>
-    </section>
+        <!-- <button id="wish">Wishlist</button>
+    </section> -->
+    </div>
+    </nav>
 
+   
+    
     <!-- Product Listing Section -->
     <main>
       <div class="product-grid"></div>

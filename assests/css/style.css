@@ -103,6 +103,11 @@ section{
   cursor: pointer;
 }
 
+#starts{
+  width:40%;
+  height: 50%;
+}
+
 #menu-btn{
   display: none;
 }

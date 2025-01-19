@@ -46,7 +46,7 @@ function display(productsToDisplay) {
                 <p class="rating">Rating: ${rating} (${ratingCount} reviews)</p>
             </div>
             <p class="category">Category: ${category}</p>
-            <button onclick="addProduct()">Add to Cart</button>
+            <button onclick="addProduct('${title}', ${discountPrice}, '${imageSrc}')">Add to Cart</button>
         `;
         container.appendChild(div); // Append the div to the container
     });

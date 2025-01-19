@@ -81,6 +81,8 @@ function showNotification(message) {
 // showNotification('This is a reusable notification!');
 
 
-document.getElementById("yourmsg").addEventListener("click",()=> {
+
+document.getElementById("yourmsg").addEventListener("click",(e)=> {
+    e.preventDefault()
     showNotification("thanku for you contacting us, WE WILL GET TO TOUCH TO YOU SOON!!")
 })

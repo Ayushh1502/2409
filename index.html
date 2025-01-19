@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
     <!-- custom css file link  -->
     <link rel="stylesheet" href="./assests/css/style.css">
+    <link rel="stylesheet" href="assests/css/slider.css">
 </head>
 <body>
 
@@ -101,7 +102,53 @@
 
         <h1 class="heading">Our <span> Products</span></h1>
 
-        <div class="box-container">
+        <div class="slider-container">
+            <div class="slider">
+                <!-- Slide 1 -->
+                <div class="slide slide-1">
+                    <div class="slide-1-content">
+                        <h1>Mega Shoe Sale!</h1>
+                        <h3>40-70% OFF on Premium Sneakers</h3>
+                        <h3>Step into Savings with Our Biggest Shoe Collection</h3>
+                        <button>Shop Shoes</button>
+                    </div>
+                </div>
+    
+                <!-- Slide 2 -->
+                <div class="slide slide-2">
+                    <div class="slide-2-content">
+                        <h1>Fashion Flash Sale</h1>
+                        <h2>40-70% OFF on Trendy Clothes</h2>
+                        <h3>Refresh Your Wardrobe For Less</h3>
+                        <button class="shop-now">Shop Clothes</button>
+                    </div>
+                </div>
+    
+                <!-- Slide 3 -->
+                <div class="slide slide-3">
+                    <div class="slide-3-content">
+                        <h1>Electronics Bonanza</h1>
+                        <h2>40-60% OFF on Electronics</h2>
+                        <h3>Upgrade Your Tech Game Today</h3>
+                        <button class="shop-now">Shop Electronics</button>
+                    </div>
+                </div>
+            </div>
+           <!-- Dots -->
+           <div class="dots">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+          </div>
+    
+          <div class="nav-buttons">
+            <button id="prev">❮</button>
+            <button id="play-pause">❚❚</button>
+            <button id="next">❯</button>
+          </div>
+        </div>
+
+        <!-- <div class="box-container">
 
             <div class="box">
                 <h3>Technology Section</h3>
@@ -143,9 +190,9 @@
                     </ul> 
                 </p>
                 <img src="./assests/images/daily.png" alt="">
-            </div>
+            </div> -->
 
-        </div>
+        <!-- </div> -->
 
     </section>
 
@@ -414,6 +461,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
     <!-- custom js file link -->
     <script src="./assests/js/main.js"></script>
+    <script src="assests/js/slider.js"></script>
 
     <script>
         lightGallery(document.querySelector('.gallery .gallery-container'));

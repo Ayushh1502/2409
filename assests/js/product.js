@@ -4,7 +4,7 @@ let filteredProducts = []; // Store filtered products based on user input
 
 async function fetchProduct() {
     try {
-        let res = await fetch("https://fakestoreapi.com/products");
+        let res = await fetch("./assests/js/products.json");
         let data = await res.json();
         allProducts = data; // Store the original products list
         filteredProducts = [...allProducts]; // Start with all products as filtered
@@ -14,6 +14,7 @@ async function fetchProduct() {
         console.log(err);
     }
 }
+
 
 // Display function
 function display(productsToDisplay) {
@@ -46,7 +47,7 @@ function display(productsToDisplay) {
                 <p class="rating">Rating: ${rating} (${ratingCount} reviews)</p>
             </div>
             <p class="category">Category: ${category}</p>
-            <button onclick="addProduct('${title}', ${discountPrice}, '${imageSrc}')">Add to Cart</button>
+            <button onclick="addProduct()">Add to Cart</button>
         `;
         container.appendChild(div); // Append the div to the container
     });

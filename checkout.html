@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+      .container {
+        width: 80%;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .checkout-header {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .checkout-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+      .checkout-item img {
+        width: 150px;
+        height: auto;
+        border-radius: 8px;
+      }
+      .checkout-item-details {
+        flex: 1;
+        margin-left: 20px;
+      }
+      .checkout-item-title {
+        font-size: 18px;
+        font-weight: bold;
+        color:  #305C72;
+      }
+      .checkout-item-prices {
+        font-size: 16px;
+        color: #333;
+      }
+      .checkout-item-prices .original-price {
+        text-decoration: line-through;
+        margin-right: 10px;
+      }
+      .checkout-item-prices .discounted-price {
+        color:   #305C72;
+        font-weight: bold;
+      }
+      .checkout-item-prices .discount-percentage {
+        color:  #305C72;
+      }
+      .confirm-button {
+        background-color:  #305C72;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="container">
+      <div class="checkout-header">Checkout</div>
+      <div id="checkoutItem" class="checkout-item">
+        <!-- Product details will be injected here -->
+      </div>
+      <button class="confirm-button" onclick="confirmPurchase()">
+        Confirm Purchase
+      </button>
+    </div>
+    <div id="footer"></div>
+    <!-- Footer placeholder -->
+    <script>
+      // Retrieve product details from localStorage
+      const checkoutItem = JSON.parse(localStorage.getItem('checkoutItem'));
+
+      if (checkoutItem) {
+        // Calculate total price based on quantity
+        const totalPrice = (
+          parseFloat(checkoutItem.price.replace(/[^0-9.-]+/g, '')) *
+          checkoutItem.quantity
+        ).toFixed(2);
+
+        // Inject product details into the checkout item box
+        document.getElementById('checkoutItem').innerHTML = `
+                <div>
+                    <div class="checkout-item-title">${checkoutItem.title}</div>
+                    <div class="checkout-item-prices">
+                        <span class="original-price">${checkoutItem.offerPrice}</span>
+                        <span class="discounted-price">US $${totalPrice}</span>
+                        <span class="discount-percentage">(15% Off)</span>
+                        <div>Quantity: ${checkoutItem.quantity}</div>
+                    </div>
+                </div>
+            `;
+      }
+
+      function confirmPurchase() {
+        alert('Thank you for your purchase!');
+        localStorage.removeItem('checkoutItem');
+      }
+    </script>
+    <script src="loadHeaderFooter.js"></script>
+  </body>
+</html>

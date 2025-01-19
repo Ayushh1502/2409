@@ -4,225 +4,92 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Page</title>
-    <link rel="stylesheet" href="productpage1.css" />
+    <link rel="stylesheet" href="assests/css/productpage1.css" />
+    <link rel="stylesheet" href="assests/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   </head>
 
   <body>
-    <div id="header"></div>
-    <!-- Header Section -->
-    <header>
-      <h1>Welcome to Products</h1>
+    <!-- Add Home Page Header Here -->
+    <header class="header">
+      <a href="index.html" class="logo"><i class="fas fa-school"></i> MIT TECHCART</a>
+  
+      <nav class="navbar">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="#">Products</a>
+          <a href="index.html#contact">Contact Us</a>
+      </nav>
+  
+      <div class="icons">
+          <button id="loggedIn" class="btn" style="display: none; border: none; margin-top: 1px;"></button>
+          <div class="fas fa-bars" id="menu-btn"></div>
+      </div>
     </header>
+
+    <!-- Search and Filter Section -->
+    <section class="filter-section">
+        <input type="text" id="searchBar" placeholder="Search for products..." onkeyup="searchProduct()" />
+        <select id="categoryFilter" onchange="filterByCategory()">
+            <option value="">All Categories</option>
+            <!-- Categories will be dynamically filled -->
+        </select>
+        <select id="priceFilter" onchange="sortByPrice()">
+            <option value="low-to-high">Price: Low to High</option>
+            <option value="high-to-low">Price: High to Low</option>
+        </select>
+        <select id="ratingFilter" onchange="filterByRating()">
+            <option value="">Rating</option>
+            <option value="1">1 Star & Above</option>
+            <option value="2">2 Stars & Above</option>
+            <option value="3">3 Stars & Above</option>
+            <option value="4">4 Stars & Above</option>
+            <option value="5">5 Stars</option>
+        </select>
+    </section>
 
     <!-- Product Listing Section -->
     <main>
-      
-      <div class="product-grid">
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7488102/2019/8/22/8002a744-0dad-4dbb-9481-cf0090134c3b1566454086786-Dennis-Lingo-Men-Pink-Slim-Fit-Solid-Casual-Shirt-9891566454-1.jpg"
-            alt="Men's Casual Shirt"
-          />
-          <h2>Dennis Lingo Men's Casual Shirt</h2>
-          <p>
-            Slim Fit Pink Cotton Casual Shirt with Spread Collar
-          </p>
-          <p>$39.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/12816440/2020/11/24/ba18a805-4903-48a4-a136-c60ca39b22911606200984349-HERENOW-Men-Tshirts-1511606200983033-1.jpg" 
-            alt="Men's T-Shirt"
-          />
-          <h2>HERE&NOW Men's T-Shirt</h2>
-          <p>
-            Solid Round Neck Pure Cotton T-shirt in Navy Blue
-          </p>
-          <p>$24.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/11780968/2020/4/3/11591b03-97f1-4907-9f7d-e5c0832d17661585905051091HIGHLANDERMenGreyMelangeSlimFitSolidJoggers1.jpg"
-            alt="Men's Joggers"
-          />
-          <h2>HIGHLANDER Men's Joggers</h2>
-          <p>
-            Grey Melange Slim Fit Solid Cotton Track Pants
-          </p>
-          <p>$34.99</p>
-          <button onclick="redirectToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/10016983/2019/6/20/b5caaca7-b5e8-4134-9283-65473a2388031561026348090-Campus-Sutra-Men-Blue-Solid-Hooded-Sweatshirt-4241561026346-1.jpg"
-            alt="Men's Hoodie"
-          />
-          <h2>Campus Sutra Hoodie</h2>
-          <p>
-            Blue Solid Hooded Sweatshirt for Men
-          </p>
-          <p>$44.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-        <div class="product-card">
-          <img
-            src="https://cdn.pixabay.com/photo/2022/12/16/22/11/men-7660590_640.jpg"
-            alt="Men's Blazer"
-          />
-          <h2>Premium Casual Blazer</h2>
-          <p>
-            Navy Blue Single-Breasted Casual Blazer
-          </p>
-          <p>$89.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/87654321/2021/2/1/denim-jacket-1.jpg"
-            alt="Denim Jacket"
-          />
-          <h2>Classic Denim Jacket</h2>
-          <p>
-            Light Wash Distressed Denim Jacket
-          </p>
-          <p>$59.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/23456789/2021/3/1/cargo-pants-1.jpg"
-            alt="Cargo Pants"
-          />
-          <h2>Tactical Cargo Pants</h2>
-          <p>
-            Olive Green Multi-Pocket Cargo Pants
-          </p>
-          <p>$49.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/98765432/2021/4/1/polo-shirt-1.jpg"
-            alt="Polo Shirt"
-          />
-          <h2>Premium Polo Shirt</h2>
-          <p>
-            White Cotton Pique Polo Shirt
-          </p>
-          <p>$29.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/34567890/2021/5/1/sweater-1.jpg"
-            alt="Sweater"
-          />
-          <h2>Wool Blend Sweater</h2>
-          <p>
-            Charcoal Grey Cable Knit Sweater
-          </p>
-          <p>$54.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/45678901/2021/6/1/chinos-1.jpg"
-            alt="Chinos"
-          />
-          <h2>Classic Chinos</h2>
-          <p>
-            Khaki Slim Fit Cotton Chinos
-          </p>
-          <p>$39.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://cdn.pixabay.com/photo/2022/12/16/22/11/men-7660590_640.jpg"
-            alt="Linen Shirt"
-          />
-          <h2>Summer Linen Shirt</h2>
-          <p>
-            Beige Pure Linen Casual Shirt
-          </p>
-          <p>$44.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/67890123/2021/8/1/track-jacket-1.jpg"
-            alt="Track Jacket"
-          />
-          <h2>Sports Track Jacket</h2>
-          <p>
-            Black Performance Track Jacket
-          </p>
-          <p>$49.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/78901234/2021/9/1/bomber-jacket-1.jpg"
-            alt="Bomber Jacket"
-          />
-          <h2>Classic Bomber Jacket</h2>
-          <p>
-            Navy Blue Cotton Bomber Jacket
-          </p>
-          <p>$69.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/89012345/2021/10/1/polo-1.jpg" 
-            alt="Polo Shirt"
-          />
-          <h2>Premium Polo Shirt</h2>
-          <p>
-            White Cotton Pique Polo
-          </p>
-          <p>$34.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <img
-            src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/90123456/2021/11/1/denim-1.jpg"
-            alt="Denim Jacket"
-          />
-          <h2>Vintage Denim Jacket</h2>
-          <p>
-            Light Wash Distressed Denim Jacket
-          </p>
-          <p>$79.99</p>
-          <button onclick="addToCart()">View Details</button>
-        </div>
-      </div>
-      </main>
+      <div class="product-grid"></div>
+    </main>
 
     <!-- Footer Section -->
-    <div id="footer"></div>
+    <section class="footer" id="pFooter" style="display: none;">
+      <div class="box-container">
+
+        <div class="box">
+            <h3> <i class="fas fa-school"></i> MIT-TECHCART </h3>
+            <p>"Stay connected, stay informed, follow us on social media."</p>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-caret-right"></i> Start Now</a>
+            <a href="#"> <i class="fas fa-caret-right"></i> calendar</a>
+            <a href="#"> <i class="fas fa-caret-right"></i>Products</a>
+        </div>
+
+        <div class="box">
+            <h3>category</h3>
+            <a href="#"> <i class="fas fa-caret-right"></i> about us</a>
+            <a href="#"> <i class="fas fa-caret-right"></i> news & events</a>
+            <a href="#"> <i class="fas fa-caret-right"></i> contact us</a>
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="#"> <i class="fas fa-caret-right"></i> privacy policy</a>
+            <a href="#"> <i class="fas fa-caret-right"></i> terms of use</a>
+            <a href="#"> <i class="fas fa-caret-right"></i> FAQs</a>
+        </div>
+
+    </div>
+
+    <div class="credit"> &copy; copyright @ 2025 by <span>FE-Group 14-2409</span></div>
+      <!-- Footer Content -->
+    </section>
 
     <!-- JavaScript -->
-    <script src="footwear.js"></script>
-    <script src="loadHeaderFooter.js"></script>
-    <script>
-      function redirectToCart() {
-    window.location.href = "shoesdes.html";
-     }
-    </script>
+    <script src="assests/js/product.js"></script>
   </body>
 </html>

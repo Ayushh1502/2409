@@ -33,9 +33,11 @@ if(token){
 
     const parsedUser = JSON.parse(user); // Parse the stored user data
     const username = parsedUser.name; // Access the user's name
-    userName.textContent = `Welcome, ${username}! It's great to have you here! 🎉`;
+    userName.innerHTML = `Welcome, ${username}! <br>It's great to have you here! 🎉`;
     console.log(username)
     userName.style.display = "block"
+
+    document.getElementById("starts").style.display="block"
 }
 
 function showNotification(message) {
@@ -77,3 +79,8 @@ function showNotification(message) {
 
 // Example usage
 // showNotification('This is a reusable notification!');
+
+
+document.getElementById("yourmsg").addEventListener("click",()=> {
+    showNotification("thanku for you contacting us, WE WILL GET TO TOUCH TO YOU SOON!!")
+})

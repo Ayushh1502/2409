@@ -16,7 +16,7 @@ async function fetchProduct() {
 }
 
 document.getElementById("cart").addEventListener("click" , ()=> {
-    window.location.href="Cart.html"
+    window.location.href="cart.html"
 })
 
 // Display function

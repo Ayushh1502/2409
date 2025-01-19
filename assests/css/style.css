@@ -575,6 +575,7 @@ section{
 
 .footer{
   background: #60b2a6;
+  border-radius: 100px 100px 0 0;
 }
 
 .footer .box-container{
@@ -653,7 +654,7 @@ section{
   }
 
   .header .navbar{
-    position: absolute;
+    position: relative;
     top: 110%; right: -110%;
     width: 30rem;
     box-shadow: var(--box-shadow);

@@ -23,7 +23,7 @@ loginForm.addEventListener("submit", async (e) => {
   const password = document.querySelector("#loginForm #password2").value;
 
   if (!email || !password) {
-    alert("Email and password are required!");
+    showNotification("Email and password are required!");
     return;
   }
 
@@ -38,14 +38,14 @@ loginForm.addEventListener("submit", async (e) => {
       const data = await response.json();
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
-      alert("Login successful! Redirecting to dashboard...");
+      showNotification("Login successful! Redirecting to dashboard...");
       window.location.href = "index.html";
     } else {
       const error = await response.json();
-      alert(`Login failed: ${error.message}`);
+      showNotification(`Login failed: ${error.message}`);
     }
   } catch (err) {
-    alert("An error occurred. Please try again later.");
+    showNotification("An error occurred. Please try again later.");
     console.error(err);
   }
 });
@@ -59,12 +59,12 @@ signupForm.addEventListener("submit", async (e) => {
   const confirmPassword = document.querySelector("#signupForm #confirm-password").value;
 
   if (!name || !email || !password || !confirmPassword) {
-    alert("All fields are required!");
+    showNotification("All fields are required!");
     return;
   }
 
   if (password !== confirmPassword) {
-    alert("Passwords do not match!");
+    showNotification("Passwords do not match!");
     return;
   }
 
@@ -77,14 +77,52 @@ signupForm.addEventListener("submit", async (e) => {
 
     if (response.ok) {
       const data = await response.json();
-      alert("Account created successfully! You can now sign in.");
+      showNotification("Account created successfully! You can now sign in.");
       container.classList.remove("right-panel-active");
     } else {
       const error = await response.json();
-      alert(`Signup failed: ${error.message}`);
+      showNotification(`Signup failed: ${error.message}`);
     }
   } catch (err) {
-    alert("An error occurred. Please try again later.");
+    showNotification("An error occurred. Please try again later.");
     console.error(err);
   }
 });
+
+
+function showNotification(message) {
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.textContent = message;
+
+  // Style the notification
+  notification.style.position = 'fixed';
+  notification.style.top = '100px'; // Below the header
+  notification.style.left = '50%'; // Center horizontally
+  notification.style.transform = 'translateX(-50%)'; // Adjust for centering
+  notification.style.backgroundColor = '#4CAF50';
+  notification.style.color = 'white';
+  notification.style.padding = '15px';
+  notification.style.zIndex = '1000';
+  notification.style.borderRadius = '5px';
+  notification.style.fontSize = '18px'; // Increased font size
+  notification.style.opacity = '0'; // Start hidden
+  notification.style.transition = 'opacity 0.5s ease'; // Animation for fade-in/out
+  
+  // Append to body
+  document.body.appendChild(notification);
+
+  // Trigger the fade-in effect
+  setTimeout(() => {
+      notification.style.opacity = '1'; // Fade in
+  }, 10);
+
+  // Remove notification after 3 seconds
+  setTimeout(() => {
+      notification.style.opacity = '0'; // Fade out
+      setTimeout(() => {
+          notification.remove(); // Remove after fade out
+      }, 500); // Match this duration with the transition duration
+  }, 3000);
+}

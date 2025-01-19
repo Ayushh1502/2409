@@ -1,27 +1,21 @@
 const BASE_URL = "https://b41web003webwizards-production-bc76.up.railway.app";
 
-// Redirect to dashboard if the user is already logged in
-if (localStorage.getItem("token")) {
-  window.location.href = "./dashboard.html";
-}
 
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+const signUpButton = document.getElementById("signUp");
+const signInButton = document.getElementById("signIn");
+const container = document.getElementById("container");
 
-signUpButton.addEventListener('click', () => {
+signUpButton.addEventListener("click", () => {
   container.classList.add("right-panel-active");
 });
 
-signInButton.addEventListener('click', () => {
+signInButton.addEventListener("click", () => {
   container.classList.remove("right-panel-active");
 });
 
-// Switch between Login and Signup forms
 const loginForm = document.getElementById("loginForm");
 const signupForm = document.getElementById("signupForm");
 
-// Handle Login Form Submission
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -45,7 +39,7 @@ loginForm.addEventListener("submit", async (e) => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       alert("Login successful! Redirecting to dashboard...");
-      window.location.href = "./dashboard.html";
+      window.location.href = "index.html";
     } else {
       const error = await response.json();
       alert(`Login failed: ${error.message}`);
@@ -56,7 +50,6 @@ loginForm.addEventListener("submit", async (e) => {
   }
 });
 
-// Handle Signup Form Submission
 signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -85,8 +78,7 @@ signupForm.addEventListener("submit", async (e) => {
     if (response.ok) {
       const data = await response.json();
       alert("Account created successfully! You can now sign in.");
-      loginForm.classList.remove("hidden");
-      signupForm.classList.add("hidden");
+      container.classList.remove("right-panel-active");
     } else {
       const error = await response.json();
       alert(`Signup failed: ${error.message}`);

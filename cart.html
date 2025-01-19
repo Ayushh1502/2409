@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+      .container {
+        width: 80%;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .cart-header {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .cart-content {
+        display: flex;
+        justify-content: space-between;
+      }
+      .cart-item-box {
+        width: 66%;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .cart-summary-box {
+        width: 32%;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+      .cart-item img {
+        width: 150px;
+        height: auto;
+        border-radius: 8px;
+      }
+      .cart-item-details {
+        flex: 1;
+        margin-left: 20px;
+      }
+      .cart-item-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #dd0c74;
+        margin-bottom: 20px;
+      }
+      .cart-item-prices {
+        font-size: 16px;
+        color: #333;
+      }
+      .cart-item-prices .original-price {
+        text-decoration: line-through;
+        margin-right: 10px;
+      }
+      .cart-item-prices .discounted-price {
+        color:  #305C72;
+        font-weight: bold;
+      }
+      .cart-item-prices .discount-percentage {
+        color:  #305C72;
+      }
+      .remove-button {
+        background-color:  #305C72;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 20px;
+        align-self: flex-end;
+      }
+      .cart-summary {
+        text-align: right;
+      }
+      .cart-summary p {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+      .cart-summary .subtotal {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .checkout-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #305C72;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .space-between {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header"></div>
+    <!-- Header placeholder -->
+
+    <div class="container">
+      <div class="cart-header">Shopping Cart</div>
+      <div class="cart-content">
+        <div class="cart-item-box">
+          <div id="cartItem" class="cart-item">
+            <!-- Product details will be injected here -->
+          </div>
+          <button class="remove-button" onclick="removeCartItem()">
+            Remove
+          </button>
+        </div>
+        <div class="cart-summary-box">
+          <div class="cart-summary">
+            <div class="space-between">
+              <p>Item(1)</p>
+              <p id="itemPrice">$0.00</p>
+            </div>
+            <div class="space-between">
+              <p>Shipping to 700029</p>
+              <p>Free</p>
+            </div>
+            <div class="space-between">
+              <p class="subtotal">Subtotal</p>
+              <p class="subtotal" id="subtotal">$0.00</p>
+            </div>
+            <button class="checkout-button" onclick="goToCheckout()">
+              Go to checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+    <!-- Footer placeholder -->
+
+    <script src="loadHeaderFooter.js"></script>
+    <script>
+      // Retrieve product details from localStorage
+      const cartItem = JSON.parse(localStorage.getItem('cartItem'));
+
+      if (cartItem) {
+        // Extract numeric value from price string
+        const unitPrice = parseFloat(cartItem.price.replace(/[^0-9.-]+/g, ''));
+        const totalPrice = (unitPrice * cartItem.quantity).toFixed(2);
+
+        // Inject product details into the cart item box
+        document.getElementById('cartItem').innerHTML = `
+                <div>
+                    <div class="cart-item-title">${cartItem.title}</div>
+                    <div class="cart-item-prices">
+                        <span class="original-price">${cartItem.offerPrice}</span>
+                        <span class="discounted-price">US $${totalPrice}</span>
+                        <span class="discount-percentage">(15% Off)</span>
+                        <div>Quantity: ${cartItem.quantity}</div>
+                    </div>
+                </div>
+            `;
+
+        // Update summary details
+        document.getElementById('itemPrice').innerText = `US $${totalPrice}`;
+        document.getElementById('subtotal').innerText = `US $${totalPrice}`;
+      }
+
+      function removeCartItem() {
+        localStorage.removeItem('cartItem');
+        document.getElementById('cartItem').innerHTML = '';
+        document.getElementById('itemPrice').innerText = '$0.00';
+        document.getElementById('subtotal').innerText = '$0.00';
+      }
+
+      function goToCheckout() {
+        // Redirect to checkout page
+        window.location.href = 'checkout.html';
+      }
+    </script>
+  </body>
+</html>

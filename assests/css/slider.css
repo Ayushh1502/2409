@@ -1,0 +1,180 @@
+.slider-container {
+    width: 100%;
+    max-width: 1450px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 1s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%;
+    height: 400px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Slide Specific Styles */
+  .slide-1 {
+    background-image: url('https://cdn.pixabay.com/photo/2016/06/21/03/09/wedding-1470330_1280.jpg');
+    justify-content: flex-start;
+  }
+  
+  .slide-1-content {
+    padding-left: 50px;
+  }
+  
+  .slide-1-content h1 {
+    color: white;
+    font-size: 48px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  
+  .slide-1-content h3 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .slide-1-content button {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .slide-1-content button:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .slide-2 {
+    background-image: url('https://cdn.pixabay.com/photo/2021/11/15/05/25/boutique-6796399_640.jpg');
+    background-size: cover;
+    background-position: center;
+    justify-content: flex-start;
+  }
+  
+  .slide-2-content {
+    padding: 50px;
+    color: black;
+    text-align: left;
+    max-width: 50%;
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .slide-2-content button {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .slide-2-content button:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  
+  .slide-3 {
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/29/06/18/apple-1867762_1280.jpg');
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+  }
+  
+  .slide-3-content {
+    max-width: 50%;
+    color: black;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 50px;
+    text-align: left;
+  }
+  
+  .slide-3-content button {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .slide-3-content button:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Navigation Elements */
+  .nav-buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .nav-buttons button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dot.active {
+    background-color: white;
+  }
+  /* education */
+  .heading{
+    margin-top: 20px;
+  }

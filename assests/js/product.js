@@ -39,7 +39,7 @@ function display(productsToDisplay) {
         div.classList.add("product-card");
         div.innerHTML = `
             <img src="${imageSrc}" alt="${title}" />
-            <h2>${title}</h2>
+            <h1>${title}</h1>
             <p class="description" data-full-description="${description}">${shortDescription} <span class="more-description" onclick="toggleDescription(this)">Read More</span></p>
             <div class="price-rating-container">
                 <p class="price">$${discountPrice} <span class="discount">$${price}</span></p>
@@ -119,4 +119,3 @@ function applyFilters() {
 }
 
 fetchProduct(); // Fetch and display products initially
-    
